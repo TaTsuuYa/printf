@@ -13,28 +13,24 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0;
 
-	if (format == NULL)
+	if (format != NULL)
 	{
-		_putchar(0);
-		return (i);
-	}
-
-	va_start(args, format);
-	while (format[i] != 0)
-	{
-		if (format[i] == '%')
+		va_start(args, format);
+		while (format[i] != 0)
 		{
+			if (format[i] == '%')
+			{
+				i++;
+				handle_format(format[i], &args);
+			}
+			else
+			{
+				_putchar(format[i]);
+			}
 			i++;
-			handle_format(format[i], &args);
 		}
-		else
-		{
-			_putchar(format[i]);
-		}
-		i++;
+		va_end(args);
 	}
-	va_end(args);
-
 	return (i);
 }
 
