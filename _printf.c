@@ -54,11 +54,8 @@ void handle_format(char f, va_list *args)
 			break;
 		case 's':
 			s = va_arg(*args, char *);
-			while (*s != 0)
-			{
+			for (; *s != 0; s++)
 				_putchar(*s);
-				s++;
-			}
 			break;
 		case '%':
 			_putchar('%');
