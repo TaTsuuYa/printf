@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0;
+	int len = 0, i = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -22,16 +22,17 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			handle_format(format[i], &args);
+			len += handle_format(format[i], &args);
 		}
 		else
 		{
+			len++;
 			_putchar(format[i]);
 		}
 		i++;
 	}
 	va_end(args);
-	return (i);
+	return (len);
 }
 
 /**
@@ -42,27 +43,34 @@ int _printf(const char *format, ...)
  * Return: void
  */
 
-void handle_format(char f, va_list *args)
+int handle_format(char f, va_list *args)
 {
 	char *s;
-
+	int len = 0;
 	switch (f)
 	{
 		case 'c':
 			_putchar(va_arg(*args, int));
+			len++;
 			break;
 		case 's':
 			s = va_arg(*args, char *);
 			for (; *s != 0; s++)
+			{
 				_putchar(*s);
+				len++;
+			}
 			break;
 		case '%':
 			_putchar('%');
+			len++;
 			break;
 		default:
 			_putchar('%');
 			_putchar(f);
+			len += 2;
 			break;
 	}
+	return (len);
 }
 

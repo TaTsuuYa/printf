@@ -9,7 +9,7 @@ int _putchar(char c);
 
 /* _printf */
 int _printf(const char *format, ...);
-void handle_format(char f, va_list *args);
+int handle_format(char f, va_list *args);
 
 #endif /* ifndef MAIN_H */
 
