@@ -22,6 +22,9 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == 0)
+				return (-1);
+
 			len += handle_format(format[i], &args);
 		}
 		else
@@ -47,6 +50,7 @@ int handle_format(char f, va_list *args)
 {
 	char *s;
 	int len = 0;
+
 	switch (f)
 	{
 		case 'c':
@@ -55,6 +59,13 @@ int handle_format(char f, va_list *args)
 			break;
 		case 's':
 			s = va_arg(*args, char *);
+			if (s == NULL)
+			{
+				_printf("(null)");
+				len += 6;
+				break;
+			}
+
 			for (; *s != 0; s++)
 			{
 				_putchar(*s);
