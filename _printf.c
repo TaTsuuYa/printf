@@ -47,6 +47,7 @@ int handle_format(char f, va_list *args)
 {
 	char *s;
 	int len = 0;
+
 	switch (f)
 	{
 		case 'c':
