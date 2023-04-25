@@ -4,6 +4,9 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+/* MACROS */
+#define BUFFER_SIZE 1024
+
 /* _putchar */
 int _putchar(char c);
 
