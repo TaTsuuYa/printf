@@ -31,6 +31,12 @@ void handle_format(const char *format, va_list args, int *len)
 		case 'b':
 			*len += _putb(va_arg(args, unsigned int));
 			break;
+		case 'o':
+			*len += _puto(va_arg(args, unsigned int));
+			break;
+		case 'u':
+			*len += _putu(va_arg(args, unsigned int));
+			break;
 		default:
 			*len += _putchar('%');
 			*len += _putchar(*format);
