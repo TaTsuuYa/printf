@@ -49,7 +49,8 @@ int _printf(const char *format, ...)
 int handle_format(char f, va_list *args)
 {
 	char *s;
-	int len = 0;
+	int len = 0, m = 0;
+	unsigned int n = 0;
 
 	switch (f)
 	{
@@ -72,6 +73,28 @@ int handle_format(char f, va_list *args)
 				len++;
 			}
 			break;
+		case 'i':
+		case 'd':
+			n = va_arg(*args, int);
+			m = n;
+
+			if (m == 0)
+			{
+				_putchar('0');
+				len++;
+				break;
+			}
+			if (m < 0)
+			{
+				_putchar('-');
+				len++;
+				m = m * -1;
+				n = m;
+				len += handle_int(m);
+				break;
+			}
+			len += handle_int(m);
+			break;
 		case '%':
 			_putchar('%');
 			len++;
@@ -82,6 +105,20 @@ int handle_format(char f, va_list *args)
 			len += 2;
 			break;
 	}
+	return (len);
+}
+
+int handle_int(int n)
+{
+	int len = 0;
+
+	if (n == 0)
+		return (0);
+
+	len += handle_int(n / 10);
+	_putchar('0' + (n % 10));
+	len++;
+
 	return (len);
 }
 
