@@ -27,6 +27,7 @@ void handle_format(const char *format, va_list args, int *len)
 			break;
 		case 'i':
 			*len += _putnbr(va_arg(args, int));
+			break;
 		default:
 			*len += _putchar('%');
 			*len += _putchar(*format);
