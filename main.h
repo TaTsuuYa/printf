@@ -22,6 +22,9 @@ int _puto(unsigned int nb);
 /* putu */
 int _putu(unsigned int nb);
 
+/* puthex */
+int _puthex(unsigned int nb, char c);
+
 /* _printf */
 void handle_format(const char *format, va_list args, int *len);
 int _printf(const char *format, ...);

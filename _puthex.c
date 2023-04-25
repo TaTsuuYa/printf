@@ -4,6 +4,7 @@
  * _puthex - print  number to hex
  * @nb: number to be printed
  * @c: the flag
+ * Return: the length
  */
 int _puthex(unsigned int nb, char c)
 {
