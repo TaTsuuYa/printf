@@ -7,9 +7,12 @@
 /* _putchar */
 int _putchar(char c);
 
+/* _puts */
+int _puts(char *str);
+
 /* _printf */
+int handle_format(const char *format, va_list args, int *len);
 int _printf(const char *format, ...);
-int handle_format(char f, va_list *args);
 
 #endif /* ifndef MAIN_H */
 

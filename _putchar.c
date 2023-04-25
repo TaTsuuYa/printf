@@ -2,13 +2,13 @@
 
 /**
  * _putchar - prints a character
- * @c: printed character
+ * @c: character to be printed
  *
- * Return: int 1 success, -1 otherwise
+ * Return: always 1 (success
  */
-
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);
+	return (1);
 }
 
