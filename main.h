@@ -13,6 +13,9 @@ int _puts(char *str);
 /* _putnbr */
 int _putnbr(int nb);
 
+/* _putb */
+int _putb(unsigned int nb);
+
 /* _printf */
 void handle_format(const char *format, va_list args, int *len);
 int _printf(const char *format, ...);
