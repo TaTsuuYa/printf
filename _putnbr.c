@@ -7,7 +7,7 @@
  */
 int _putnbr(int nb)
 {
-	long nbr = nb; 
+	long nbr = nb;
 	int len = 0;
 
 	if (nbr < 0)
@@ -17,6 +17,6 @@ int _putnbr(int nb)
 	}
 	if (nbr > 9)
 		len += _putnbr(nbr / 10);
-	len += _putchar(nbr % 10 + '0');
-	return(len);
+	len += _putchar((nbr % 10) + '0');
+	return (len);
 }
