@@ -9,7 +9,7 @@
  * Return: void
  */
 
-int handle_format(const char *format, va_list args, int *len)
+void handle_format(const char *format, va_list args, int *len)
 {
 	switch (*format)
 	{

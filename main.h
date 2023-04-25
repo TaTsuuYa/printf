@@ -11,7 +11,7 @@ int _putchar(char c);
 int _puts(char *str);
 
 /* _printf */
-int handle_format(const char *format, va_list args, int *len);
+void handle_format(const char *format, va_list args, int *len);
 int _printf(const char *format, ...);
 
 #endif /* ifndef MAIN_H */
