@@ -28,6 +28,21 @@ void handle_format(const char *format, va_list args, int *len)
 		case 'i':
 			*len += _putnbr(va_arg(args, int));
 			break;
+		case 'b':
+			*len += _putb(va_arg(args, unsigned int));
+			break;
+		case 'o':
+			*len += _puto(va_arg(args, unsigned int));
+			break;
+		case 'u':
+			*len += _putu(va_arg(args, unsigned int));
+			break;
+		case 'x':
+			*len += _puthex(va_arg(args, unsigned int), 'x');
+			break;
+		case 'X':
+			*len += _puthex(va_arg(args, unsigned int), 'X');
+			break;
 		default:
 			*len += _putchar('%');
 			*len += _putchar(*format);
