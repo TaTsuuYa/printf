@@ -13,7 +13,7 @@ int _putS(char *str)
 		return (_puts("(null)"));
 	while (*str != '\0')
 	{
-		if ((*str > 0 && *str < 32) || *str >= 127)
+		if (*str < 32 || *str >= 127)
 		{
 			len += _puts("\\x0");
 			len += _puthex(*str, 'X');
